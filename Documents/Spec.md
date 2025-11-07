@@ -1,18 +1,12 @@
 # Linker
-
-
-### Author  
-**Oleksandr Starshynov**
+Project name **Linker**  
 
 ### Current Doc Version  
-**v1.0 (November 2025)**  
+**v1.0 (November 2025)**  updated by Oleksandr Starshynov
 
 ---
 
-## 1. 📘 Introduction  
-
-### Project name  
-**Linker**  
+## 1. Introduction  
 
 ### Brief description  
 **Linker** is an intelligent system for processing, vectorizing, and standardizing text fragments.  
@@ -30,7 +24,7 @@ Future releases will introduce automatic topic detection, visual link graphs, an
 
 ---
 
-## 2. 🏗️ Overall Architecture  
+## 2. Overall Architecture  
 
 ### Architectural approach  
 **Modular Monolithic Architecture** — an application with clearly defined layers: UI, API, Model, and Storage.  
@@ -45,7 +39,7 @@ The components are logically separated but operate within one context, providing
 
 ### Components  
 
-#### 🖥️ Frontend (TypeScript)
+#### Frontend (TypeScript)
 An interface for creating, editing, and analyzing text fragments.  
 
 **Features:**  
@@ -56,7 +50,7 @@ An interface for creating, editing, and analyzing text fragments.
 - Direct REST API communication  
 - Local JSON fragment storage  
 
-#### ⚙️ Backend (FastAPI + Python)
+#### Backend (FastAPI + Python)
 The backend receives text, splits it into subfragments, vectorizes them, and coordinates data between databases.  
 
 **Pipeline:**  
@@ -74,7 +68,7 @@ The backend receives text, splits it into subfragments, vectorizes them, and coo
 - `GET /search/text` — search by text content  
 - `GET /search/vector` — semantic similarity search  
 
-#### 🧠 AI Model Layer
+#### AI Model Layer
 Uses a local `SentenceTransformer (all-MiniLM-L6-v2)` model fine-tuned on custom triplets.  
 
 **Highlights:**  
@@ -84,7 +78,7 @@ Uses a local `SentenceTransformer (all-MiniLM-L6-v2)` model fine-tuned on custom
 - Consistent embeddings across sessions  
 - Retraining possible without breaking compatibility  
 
-#### 💾 Data Layer
+#### Data Layer
 - **Supabase (PostgreSQL):** stores original texts, metadata (`id`, `parentId`, `topic`, timestamps`)  
 - **Qdrant (Vector DB):** stores embeddings and performs nearest-neighbor vector search  
 
@@ -93,9 +87,7 @@ Uses a local `SentenceTransformer (all-MiniLM-L6-v2)` model fine-tuned on custom
 
 ---
 
-## 3a. 🧩 Code Structure (Server)
-
-> Backend: **Python + FastAPI**
+## Code Structure (Server)
 
 The server side of **Linker** is implemented as a well-structured FastAPI application.  
 Each module is responsible for a specific part of the data processing pipeline — from text ingestion to embedding generation and storage.
@@ -136,18 +128,18 @@ To start the backend locally, run:
 pip install -r requirements.txt
 python -m uvicorn main:app --reload
 ```
-## 3. ⚙️ Technology Stack  
+## 3. Technology Stack  
 
 - **Frontend:** TypeScript (no frameworks), Live Server  
 - **Backend:** Python + FastAPI  
 - **Databases:** Supabase (PostgreSQL), Qdrant (Vector Search)  
 - **AI:** SentenceTransformer (all-MiniLM-L6-v2), local fine-tuned model  
 - **Deployment:** Local run; Docker planned  
-- **Version control:** GitHub [`aleksandrstarshynov/linker`](https://github.com/aleksandrstarshynov/linker)  
-
+- **Version control:** GitHub
+- 
 ---
 
-## 4. 👥 Users and Roles  
+## 4. Users and Roles  
 
 ### Current  
 - **Researcher** — create, edit, and explore text fragments  
@@ -159,7 +151,7 @@ python -m uvicorn main:app --reload
 
 ---
 
-## 5. 🔁 Integration and Communication  
+## 5. Integration and Communication  
 
 ### Data exchange  
 REST API communication between the frontend and FastAPI.  
@@ -172,7 +164,7 @@ Asynchronous coordination between Supabase and Qdrant within the backend.
 
 ---
 
-## 6. 🧠 Data and Storage  
+## 6. Data and Storage  
 
 ### Data model  
 Each fragment includes:  
@@ -195,7 +187,7 @@ Each fragment includes:
 
 ---
 
-## 7. 🔒 Security and PII  
+## 7. Security and PII  
 
 - All processing runs locally  
 - No external data transmission  
@@ -213,16 +205,16 @@ Each fragment includes:
 
 ---
 
-## 9. 🧰 DevOps and CI/CD  
+## 9. DevOps and CI/CD  
 
-- **Repository:** [GitHub – Linker](https://github.com/aleksandrstarshynov/linker)  
+- **Repository:** GitHub
 - **Frontend:** open `index.html` using Live Server  
 - **Backend:** run `python -m uvicorn main:app --reload`  
 - **Planned:** Docker Compose and GitHub Actions for automatic build and deploy  
 
 ---
 
-## 10. 🧪 Testing and Quality  
+## 10. Testing and Quality  
 
 - **Unit tests:** pytest (API endpoints)  
 - **Manual testing:** frontend and integration  
@@ -230,14 +222,14 @@ Each fragment includes:
 
 ---
 
-## 11. 📈 Monitoring and Incident Response  
+## 11. Monitoring and Incident Response  
 
 - **Metrics:** response time, number of stored fragments, search latency  
 - **Future:** alert system for model or index failure  
 
 ---
 
-## 12. 📜 Roadmap and Future Development  
+## 12. Roadmap and Future Development  
 
 - Docker containerization  
 - Supabase Auth integration  
