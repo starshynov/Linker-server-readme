@@ -197,7 +197,7 @@ Each fragment includes:
 
 ---
 
-## 8. 🪵 Logging and Monitoring  
+## 8. Logging and Monitoring  
 
 - FastAPI (uvicorn) logs  
 - Local error and latency logs  
